@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGB Dashboard</title>
+    <style>
+        /* 基本样式设置 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 页面标题样式 */
+        h2 {
+            color: #4A90E2;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* 选项卡样式 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #4A90E2;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #357ABD;
+        }
+
+        .tab.active {
+            background-color: #fff;
+            color: #4A90E2;
+            border-bottom: 3px solid #4A90E2;
+        }
+
+        /* 内容样式 */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 表单和选择器样式 */
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        select {
+            padding: 8px;
+            margin-right: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        /* PDF容器样式 */
+        .image-container embed {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            display: none;
+            margin-top: 20px;
+            height: 500px; /* PDF显示高度 */
+        }
+        .banner-image-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .banner-image-container img {
+            width: 100%;
+            max-width: 800px; /* 可以根据需要调整最大宽度 */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .tab-content p {
+            font-size: 16px;       
+            line-height: 2;      
+            color: #333;           
+            margin-bottom: 10px;   
+        }
+        .tab-content#overall-results p {
+            font-size: 12px !important;       
+            line-height: 1.5 !important;      
+            color: #333 !important;           
+            margin-bottom: 10px !important;  
+        }
+        /* 表格样式 */
+        .algorithm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .algorithm-table th, .algorithm-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .algorithm-table thead {
+            background-color: #4A90E2;
+            color: #fff;
+        }
+        .algorithm-table thead tr:hover {
+            background-color: #4A90E2; 
+        }
+
+        .algorithm-table tr:nth-child(even) {
+            background-color: #f4f6f9; 
+        }
+
+        .algorithm-table tr:hover {
+            background-color: #e9eef3;
+        }
+
+
+        .tab-content h2 {
+            font-size: 24px;       
+            color: #4A90E2;       
+            margin-bottom: 20px;   
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+<!-- 选项卡导航栏 -->
+<div class="tabs">
+    <div class="tab active" onclick="openTab('home')">PGB (Home)</div>
+    <div class="tab" onclick="openTab('algorithm')">Algorithm</div>
+    <div class="tab" onclick="openTab('overall-results')">Overall Results</div>
+    <div class="tab" onclick="openTab('specific-results')">Specific Results</div>
+</div>
+
+<!-- PGB (Home) -->
+<div id="home" class="tab-content active">
+    <h2>PGB (Home)</h2>
+    <p>PGB (Private Graph Benchmark) is a comprehensive benchmark designed to enable researchers to compare differentially private graph generation algorithms fairly.<!-- 在此处添加Home页面的描述文本 --></p>
+</div>
+
+<!-- Algorithm -->
+<div id="algorithm" class="tab-content">
+    <h2>Algorithm</h2>
+    <p><!-- 在此处添加Algorithm页面的描述文本 --></p>
+
+    <table class="algorithm-table">
+        <thead>
+            <tr>
+                <th>Algorithm</th>
+                <th>Paper</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DP1K</td>
+                <td>Preserving differential privacy in degree-correlation based graph generation,2013</td>
+                <td><a href="https://github.com/dooohow/PGB" target="_blank">https://github.com/dooohow/PGB</a></td>
+            </tr>
+            <tr>
+                <td>Tmf</td>
+                <td>Differentially private publication of social graphs at linear cost,2015</td>
+                <td><a href="https://github.com/dooohow/PGB" target="_blank">https://github.com/dooohow/PGB</a></td>
+            </tr>
+            <tr>
+                <td>PrivSKG</td>
+                <td>A differentially private estimator for the stochastic kronecker graph model,2012</td>
+                <td><a href="https://github.com/dooohow/PGB" target="_blank">https://github.com/dooohow/PGB</a></td>
+            </tr>
+            <tr>
+                <td>PrivHRG</td>
+                <td>Differentially private network data release via structural inference,2014</td>
+                <td><a href="https://github.com/kaseyxiao/privHRG" target="_blank">https://github.com/kaseyxiao/privHRG</a></td>
+            </tr>
+            <tr>
+                <td>PrivGraph</td>
+                <td>{PrivGraph}: Differentially Private Graph Data Publication by Exploiting Community Information</td>
+                <td><a href="https://github.com/Privacy-Graph/PrivGraph" target="_blank">https://github.com/Privacy-Graph/PrivGraph</a></td>
+            </tr>
+            <tr>
+                <td>DGG</td>
+                <td>Generating synthetic decentralized social graphs with local differential privacy</td>
+                <td><a href="https://github.com/dooohow/PGB" target="_blank">https://github.com/dooohow/PGB</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Overall Results -->
+<div id="overall-results" class="tab-content">
+    <h2>Overall Results</h2>
+    <div class="image-container">
+        <img src="result/overall.png" alt="Overall Results Image" width="100%">
+    </div>
+    <p>1. Each number shows how often the algorithm performs best across 15 queries,given a privacy budget ε and a graph data set. For example,
+        the first number "5" means that DP-dK out performs others in 5 queries (i.e.,Q5,Q6,Q9,Q12,Q13) for the Minnesota graph with ε=0.1.<br>2. The highest frequency in each case is highlighted in gray.<!-- 在此处添加Overall Results页面的描述文本 --></p>
+</div>
+
+
+<!-- Specific Results -->
+<div id="specific-results" class="tab-content">
+    <h2>Specific Results</h2>
+    <label for="querySelect">Select Query:</label>
+    <select id="querySelect" onchange="updateImage()">
+        <option value="">-- Select Query --</option>
+        <option value="1">Number of nodes(RE)</Q></option>
+        <option value="2">Number of edges(RE)</option>
+        <option value="3">Triangle counts(RE)</option>
+        <option value="4">Average degree(RE)</option>
+        <option value="5">Degree variance(RE)</option>
+        <option value="6">Degree distribution(KL)</option>
+        <option value="7">Diameter(RE)</option>
+        <option value="8">Average of all shortest paths(RE)</option>
+        <option value="9">Distance distribution(RE)</option>
+        <option value="10">Global clustering coefficient(RE)</option>
+        <option value="11">Average clustering coefficient(RE)</option>
+        <option value="12">Community detection(NMI)</option>
+        <option value="13">Modularity(RE)</option>
+        <option value="14">Assortativity coefficient(RE)</option>
+        <option value="15">Eigenvector centrality(MAE)</option>
+    </select>
+
+    <label for="datasetSelect">Select Dataset:</label>
+    <select id="datasetSelect" onchange="updateImage()">
+        <option value="">-- Select Dataset --</option>
+        <option value="ba_graph">ba_graph</option>
+        <option value="CA-HepPh">CA-HepPh</option>
+        <option value="econ-poli-large">econ-polo-large</option>
+        <option value="er_graph">er_graph</option>
+        <option value="Facebook">Facebook</option>
+        <option value="p2p-Gnutella">p2p-Gnutella</option>
+        <option value="road-minnesota">road-minnesota</option>
+        <option value="Wiki-Vote">Wiki-Vote</option>
+    </select>
+
+    <div class="banner-image-container">
+        <img src="result/legend.png" alt="Banner Image">
+    </div>
+
+    <div class="image-container">
+        <embed id="resultImage" src="" type="application/pdf" width="100%" height="500px">
+    </div>
+</div>
+
+<script>
+    function openTab(tabName) {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
+        document.getElementById(tabName).classList.add('active');
+    }
+
+    function updateImage() {
+        const query = document.getElementById("querySelect").value;
+        const dataset = document.getElementById("datasetSelect").value;
+        const resultImage = document.getElementById("resultImage");
+
+        if (query && dataset) {
+            resultImage.src = `result/${dataset}/Q${query}.pdf`;
+            resultImage.style.display = 'block';
+        } else {
+            resultImage.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
